@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>A Special Question</title>
+        <link rel="stylesheet" href="question.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <main class="container">
+            <div class="question-card">
+                <h1>💝 Will you be my girlfriend? 💝</h1>
+                <p class="subtitle">I really like you and want to be with you...</p>
+                <div class="button-group">
+                    <button onclick="window.location.href='yes.html'" class="main-button yes-button">Yes</button>
+                    <button onclick="window.location.href='no.html'" class="main-button no-button" id="noButton">No</button>
+                </div>
+            </div>
+        </main>
+        <script>
+            // Make the "No" button run away from the cursor
+            const noButton = document.getElementById('noButton');
+            noButton.addEventListener('mouseover', () => {
+                const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+                const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+                noButton.style.position = 'absolute';
+                noButton.style.transition = 'all 0.3s ease';
+                noButton.style.left = `${x}px`;
+                noButton.style.top = `${y}px`;
+            });
+        </script>
+    </body>
+</html>

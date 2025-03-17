@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Yay! 💖</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap" rel="stylesheet">
+        <style>
+            .celebration {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 100;
+            }
+            
+            .heart {
+                animation: floatHeart 4s ease-in infinite;
+                position: absolute;
+                font-size: 2rem;
+            }
+            
+            @keyframes floatHeart {
+                0% {
+                    transform: translateY(100vh) scale(0);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(-100px) scale(1);
+                    opacity: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="container">
+            <div class="card myDiv">
+                <h1>💕 I Love You! 💕</h1>
+                <p class="subtitle">Thank you for making me the happiest person! ❤️</p>
+                <div class="button-group">
+                    <button onclick="window.location.href='index2.html'" class="main-button">
+                        Ask Again <span class="arrow">→</span>
+                    </button>
+                </div>
+            </div>
+        </main>
+        <div class="celebration" id="celebration"></div>
+        <script>
+            function createHeart() {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '💖';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                document.getElementById('celebration').appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 4000);
+            }
+            
+            setInterval(createHeart, 300);
+        </script>
+    </body>
+</html>
